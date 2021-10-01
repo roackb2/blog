@@ -1,0 +1,27 @@
+<div class="article-detail">
+  <img
+    class="preview"
+    src="<%= @article.preview_url %>"
+  />
+  <div class="title"><%= @article.title %></div>
+  <div class="body"><%= @article.body %></div>
+</div>
+<style>
+.article-detail {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.preview {
+  height: auto;
+}
+.title {
+  font-size: 36px;
+  font-weight: 500;
+}
+.body {
+  font-size: 16px;
+}
+</style>

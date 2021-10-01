@@ -1,1 +1,45 @@
-<h1>This is index of Articles</h1>
+<h1>This is list of Articles</h1>
+
+<div class="article-list">
+  <% @articles.each do |article| %>
+    <div
+      class="article-item"
+      onclick="window.location.href='<%= article_path(article) %>'"
+    >
+      <img
+        class="preview"
+        src="<%= article.preview_url %>"
+      >
+      <div class="content">
+        <div class="title"><%= article.title %></div>
+        <div class="body"><%= article.body %></div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<style>
+.article-list {
+  display: flex;
+  flex-direction: column
+}
+.article-item {
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+}
+.preview {
+  width: 200px;
+  height: auto;
+}
+.content {
+  padding: 0 10px;
+}
+.title {
+  font-size: 18px;
+  font-weight: 500;
+}
+.body {
+  font-size: 12px;
+  margin: 10px 0;
+}
+</style>
