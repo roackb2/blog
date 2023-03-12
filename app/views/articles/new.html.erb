@@ -1,0 +1,37 @@
+<div class="article-new form">
+  <%= link_to "Back", articles_path %>
+  <h1>New Article</h1>
+  <%= form_with model: @article do |form| %>
+    <!-- Title -->
+    <div class="form-field">
+      <div class="form-label">
+        <%= form.label :title %>
+      </div>
+      <div class="form-input">
+        <%= form.text_field :title %>
+      </div>
+      <div class="form-error">
+        <% @article.errors.full_messages_for(:title).each do |msg| %>
+          <span><%= msg %></span>
+        <% end %>
+      </div>
+    </div>
+    <!-- Body -->
+    <div class="form-field">
+      <div class="form-label">
+        <%= form.label :body %>
+      </div>
+      <div class="form-input">
+        <%= form.text_area :body %>
+      </div>
+      <div class="form-error">
+        <% @article.errors.full_messages_for(:body).each do |msg| %>
+          <span><%= msg %></span>
+        <% end %>
+      </div>
+    </div>
+    <div class="form-submit">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>
