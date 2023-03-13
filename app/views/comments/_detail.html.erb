@@ -5,4 +5,8 @@
   <div class="article-detail-comment-body">
     Comment: <%= comment.body %>
   </div>
+  <%= link_to "Delete comment", [comment.article, comment], data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %>
 </div>

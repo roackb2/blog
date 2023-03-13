@@ -3,12 +3,15 @@
   <h1 class="article-list-title">Articles</h1>
   <ul>
     <% @articles.each do |article| %>
-      <li class="article-list-item">
-        <%= link_to article.title, article %>
-        <p>
-          <%= article.body.length > 10 ? article.body.slice(0..10) + '...' : article.body %>
-        </p>
-      </li>
+      <% unless article.archived? %>
+        <li class="article-list-item">
+          <%= link_to article.title, article %>
+          <p>
+            <%= article.body.length > 10 ? article.body.slice(0..10) + '...' : article.body %>
+          </p>
+        </li>
+      <% end %>
     <% end %>
   </ul>
+  <span>Total articles: <%= Article.public_count %></span>
 </div>

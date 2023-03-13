@@ -27,6 +27,20 @@
       <% end %>
     </div>
   </div>
+  <!-- Status -->
+  <div class="form-field">
+    <div class="form-label">
+      <%= form.label :status %>
+    </div>
+    <div class="form-input">
+      <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+    </div>
+    <div class="form-error">
+      <% article.errors.full_messages_for(:body).each do |msg| %>
+        <span><%= msg %></span>
+      <% end %>
+    </div>
+  </div>
   <div class="form-submit">
     <%= form.submit %>
   </div>

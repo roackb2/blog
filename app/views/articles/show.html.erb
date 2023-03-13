@@ -18,7 +18,9 @@
     Comments
   </h2>
   <% @article.comments.each do |comment| %>
-    <%= render "comment", comment: comment %>
+    <% unless comment.archived? %>
+      <%= render "comments/detail", comment: comment %>
+    <% end %>
   <% end %>
   <!-- Add Comment -->
   <h2 class="article-detail-add-comment">
