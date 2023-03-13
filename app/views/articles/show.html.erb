@@ -13,4 +13,16 @@
       turbo_confirm: "Are you sure?"
     } %>
   </div>
+  <!-- Comments -->
+  <h2 class="article-detail-comments">
+    Comments
+  </h2>
+  <% @article.comments.each do |comment| %>
+    <%= render "comment", comment: comment %>
+  <% end %>
+  <!-- Add Comment -->
+  <h2 class="article-detail-add-comment">
+    Add a comment:
+  </div>
+  <%= render "comments/form" %>
 </div>
