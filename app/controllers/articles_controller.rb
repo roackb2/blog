@@ -2,6 +2,8 @@
 
 # The Articles controller
 class ArticlesController < ApplicationController
+  http_basic_authenticate_with name: 'blogger', password: 'secret', except: %i[index show]
+
   def index
     @articles = Article.all.order(id: :desc)
   end
